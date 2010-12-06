@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'WLoggerApp' target in the 'WLoggerApp' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#define RTRACE(fmt, ...) { if (remoteLogger) { [remoteLogger log:[NSString stringWithFormat:fmt, ##__VA_ARGS__]; } }

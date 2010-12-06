@@ -1,0 +1,765 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		256AC3DA0F4B6AC300CF3369 /* CloudyaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* CloudyaAppDelegate.m */; };
+		4B006FC61294330300AF68A4 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B006FC51294330300AF68A4 /* DBPrefsWindowController.m */; };
+		4B006FC91294333F00AF68A4 /* PEPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B006FC81294333F00AF68A4 /* PEPrefsWindowController.m */; };
+		4B006FD3129435E200AF68A4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B006FD1129435E200AF68A4 /* Preferences.xib */; };
+		4B00702F1294697700AF68A4 /* Storage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B00702D1294697700AF68A4 /* Storage.png */; };
+		4B0070301294697700AF68A4 /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B00702E1294697700AF68A4 /* General.png */; };
+		4B0070BC1295996300AF68A4 /* PEStatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0070BB1295996300AF68A4 /* PEStatusWindowController.m */; };
+		4B0070BF12959B3300AF68A4 /* StatusWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B0070BD12959B3300AF68A4 /* StatusWindow.xib */; };
+		4B5F1956129C15E800EC45D2 /* PEWeatherWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F1955129C15E800EC45D2 /* PEWeatherWindowController.m */; };
+		4B5F1964129C1F3300EC45D2 /* sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1963129C1F3300EC45D2 /* sunny.png */; };
+		4B5F1996129C23FA00EC45D2 /* WeatherWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1994129C23FA00EC45D2 /* WeatherWindow.xib */; };
+		4B5F19E0129C2E9300EC45D2 /* cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DC129C2E9300EC45D2 /* cloudy.png */; };
+		4B5F19E1129C2E9300EC45D2 /* partly cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DD129C2E9300EC45D2 /* partly cloudy.png */; };
+		4B5F19E2129C2E9300EC45D2 /* rainy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DE129C2E9300EC45D2 /* rainy.png */; };
+		4B5F19E3129C2E9300EC45D2 /* snowy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DF129C2E9300EC45D2 /* snowy.png */; };
+		4B5F1B3E129D6B5500EC45D2 /* current conditions.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1B3D129D6B5500EC45D2 /* current conditions.png */; };
+		4B5F1B56129D6CE200EC45D2 /* windCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1B4D129D6CE200EC45D2 /* windCircle.png */; };
+		4B5F1C0F129E761000EC45D2 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C0E129E761000EC45D2 /* house.png */; };
+		4B5F1C12129E88E100EC45D2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C11129E88E100EC45D2 /* arrow.png */; };
+		4B5F1C35129E99F900EC45D2 /* arrow3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C34129E99F900EC45D2 /* arrow3.png */; };
+		4B5F1C3C129E9B2C00EC45D2 /* arrow4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C3B129E9B2C00EC45D2 /* arrow4.png */; };
+		4B5F1C65129EA85200EC45D2 /* CloudApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C64129EA85200EC45D2 /* CloudApp.icns */; };
+		4B8D142B12A9532100698626 /* Cloudya-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107310486CEB800E47090 /* Cloudya-Info.plist */; };
+		4BB0922212A9554700A9AFB4 /* daemon-info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BB4E9211290550F0091585B /* daemon-info.plist */; };
+		4BB0922312A9554700A9AFB4 /* daemon-launchd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BB4E9221290550F0091585B /* daemon-launchd.plist */; };
+		4BB4E808129052F30091585B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB4E807129052F30091585B /* Security.framework */; };
+		4BB4E80A129052F30091585B /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB4E809129052F30091585B /* ServiceManagement.framework */; };
+		4BB4E9A0129056FC0091585B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E956129056FC0091585B /* AppDelegate.m */; };
+		4BB4E9A1129056FC0091585B /* SBCouchDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E95A129056FC0091585B /* SBCouchDatabase.m */; };
+		4BB4E9A2129056FC0091585B /* SBCouchDatabaseInfoDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E95C129056FC0091585B /* SBCouchDatabaseInfoDocument.m */; };
+		4BB4E9A3129056FC0091585B /* SBCouchDesignDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E95E129056FC0091585B /* SBCouchDesignDocument.m */; };
+		4BB4E9A4129056FC0091585B /* SBCouchDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E960129056FC0091585B /* SBCouchDocument.m */; };
+		4BB4E9A5129056FC0091585B /* SBCouchEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E962129056FC0091585B /* SBCouchEnumerator.m */; };
+		4BB4E9A6129056FC0091585B /* SBCouchQueryOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E964129056FC0091585B /* SBCouchQueryOptions.m */; };
+		4BB4E9A7129056FC0091585B /* SBCouchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E966129056FC0091585B /* SBCouchResponse.m */; };
+		4BB4E9A8129056FC0091585B /* SBCouchServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E968129056FC0091585B /* SBCouchServer.m */; };
+		4BB4E9A9129056FC0091585B /* SBCouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E96A129056FC0091585B /* SBCouchView.m */; };
+		4BB4E9AA129056FC0091585B /* SBJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E96C129056FC0091585B /* SBJSONScanner.m */; };
+		4BB4E9AB129056FC0091585B /* SBOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E96E129056FC0091585B /* SBOrderedDictionary.m */; };
+		4BB4E9AC129056FC0091585B /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E971129056FC0091585B /* EMKeychainItem.m */; };
+		4BB4E9AD129056FC0091585B /* EMKeychainProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E973129056FC0091585B /* EMKeychainProxy.m */; };
+		4BB4E9AE129056FC0091585B /* NSCalendarDate+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E977129056FC0091585B /* NSCalendarDate+SBJSON.m */; };
+		4BB4E9AF129056FC0091585B /* NSDictionary+CouchObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E979129056FC0091585B /* NSDictionary+CouchObjC.m */; };
+		4BB4E9B0129056FC0091585B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E97B129056FC0091585B /* NSObject+SBJSON.m */; };
+		4BB4E9B1129056FC0091585B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E97D129056FC0091585B /* NSString+SBJSON.m */; };
+		4BB4E9B2129056FC0091585B /* KeyChainHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E97F129056FC0091585B /* KeyChainHandler.m */; };
+		4BB4E9B3129056FC0091585B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E980129056FC0091585B /* main.m */; };
+		4BB4E9B4129056FC0091585B /* ReadingAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E982129056FC0091585B /* ReadingAssembler.m */; };
+		4BB4E9BE129056FC0091585B /* WMR100NDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E99F129056FC0091585B /* WMR100NDeviceController.m */; };
+		4BB4EB03129057C70091585B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB4E805129052F30091585B /* IOKit.framework */; };
+		4BB4EB04129057C70091585B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB4E807129052F30091585B /* Security.framework */; };
+		4BB4EB05129057C70091585B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		4BB4EB06129057C70091585B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB4E917129053350091585B /* CoreServices.framework */; };
+		4BB4EB3512905BB30091585B /* se.ejeklint.wldaemon in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB4E91C129054420091585B /* se.ejeklint.wldaemon */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BB4EB3612905BCA0091585B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BB4E91B129054420091585B;
+			remoteInfo = se.ejeklint.wldaemon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4BB4EB3412905B820091585B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchServices;
+			dstSubfolderSpec = 1;
+			files = (
+				4BB4EB3512905BB30091585B /* se.ejeklint.wldaemon in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		256AC3D80F4B6AC300CF3369 /* CloudyaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudyaAppDelegate.h; sourceTree = "<group>"; };
+		256AC3D90F4B6AC300CF3369 /* CloudyaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudyaAppDelegate.m; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* Cloudya_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cloudya_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		4B006FC41294330300AF68A4 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
+		4B006FC51294330300AF68A4 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
+		4B006FC71294333F00AF68A4 /* PEPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEPrefsWindowController.h; sourceTree = "<group>"; };
+		4B006FC81294333F00AF68A4 /* PEPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEPrefsWindowController.m; sourceTree = "<group>"; };
+		4B006FD2129435E200AF68A4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
+		4B00702D1294697700AF68A4 /* Storage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Storage.png; sourceTree = "<group>"; };
+		4B00702E1294697700AF68A4 /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
+		4B0070BA1295996300AF68A4 /* PEStatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEStatusWindowController.h; sourceTree = "<group>"; };
+		4B0070BB1295996300AF68A4 /* PEStatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEStatusWindowController.m; sourceTree = "<group>"; };
+		4B0070BE12959B3300AF68A4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StatusWindow.xib; sourceTree = "<group>"; };
+		4B5F1954129C15E800EC45D2 /* PEWeatherWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEWeatherWindowController.h; sourceTree = "<group>"; };
+		4B5F1955129C15E800EC45D2 /* PEWeatherWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEWeatherWindowController.m; sourceTree = "<group>"; };
+		4B5F1963129C1F3300EC45D2 /* sunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny.png; sourceTree = "<group>"; };
+		4B5F1995129C23FA00EC45D2 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/WeatherWindow.xib; sourceTree = "<group>"; };
+		4B5F19DC129C2E9300EC45D2 /* cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudy.png; sourceTree = "<group>"; };
+		4B5F19DD129C2E9300EC45D2 /* partly cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "partly cloudy.png"; sourceTree = "<group>"; };
+		4B5F19DE129C2E9300EC45D2 /* rainy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainy.png; sourceTree = "<group>"; };
+		4B5F19DF129C2E9300EC45D2 /* snowy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowy.png; sourceTree = "<group>"; };
+		4B5F1B3D129D6B5500EC45D2 /* current conditions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "current conditions.png"; sourceTree = "<group>"; };
+		4B5F1B4D129D6CE200EC45D2 /* windCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windCircle.png; sourceTree = "<group>"; };
+		4B5F1C0E129E761000EC45D2 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
+		4B5F1C11129E88E100EC45D2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		4B5F1C34129E99F900EC45D2 /* arrow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow3.png; sourceTree = "<group>"; };
+		4B5F1C3B129E9B2C00EC45D2 /* arrow4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow4.png; sourceTree = "<group>"; };
+		4B5F1C64129EA85200EC45D2 /* CloudApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = CloudApp.icns; sourceTree = "<group>"; };
+		4BB4E805129052F30091585B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		4BB4E807129052F30091585B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4BB4E809129052F30091585B /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		4BB4E917129053350091585B /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		4BB4E91C129054420091585B /* se.ejeklint.wldaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = se.ejeklint.wldaemon; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB4E9211290550F0091585B /* daemon-info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "daemon-info.plist"; sourceTree = "<group>"; };
+		4BB4E9221290550F0091585B /* daemon-launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "daemon-launchd.plist"; sourceTree = "<group>"; };
+		4BB4E955129056FC0091585B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = daemon/AppDelegate.h; sourceTree = "<group>"; };
+		4BB4E956129056FC0091585B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = daemon/AppDelegate.m; sourceTree = "<group>"; };
+		4BB4E958129056FC0091585B /* CouchObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchObjC.h; sourceTree = "<group>"; };
+		4BB4E959129056FC0091585B /* SBCouchDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchDatabase.h; sourceTree = "<group>"; };
+		4BB4E95A129056FC0091585B /* SBCouchDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchDatabase.m; sourceTree = "<group>"; };
+		4BB4E95B129056FC0091585B /* SBCouchDatabaseInfoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchDatabaseInfoDocument.h; sourceTree = "<group>"; };
+		4BB4E95C129056FC0091585B /* SBCouchDatabaseInfoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchDatabaseInfoDocument.m; sourceTree = "<group>"; };
+		4BB4E95D129056FC0091585B /* SBCouchDesignDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchDesignDocument.h; sourceTree = "<group>"; };
+		4BB4E95E129056FC0091585B /* SBCouchDesignDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchDesignDocument.m; sourceTree = "<group>"; };
+		4BB4E95F129056FC0091585B /* SBCouchDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchDocument.h; sourceTree = "<group>"; };
+		4BB4E960129056FC0091585B /* SBCouchDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchDocument.m; sourceTree = "<group>"; };
+		4BB4E961129056FC0091585B /* SBCouchEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchEnumerator.h; sourceTree = "<group>"; };
+		4BB4E962129056FC0091585B /* SBCouchEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchEnumerator.m; sourceTree = "<group>"; };
+		4BB4E963129056FC0091585B /* SBCouchQueryOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchQueryOptions.h; sourceTree = "<group>"; };
+		4BB4E964129056FC0091585B /* SBCouchQueryOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchQueryOptions.m; sourceTree = "<group>"; };
+		4BB4E965129056FC0091585B /* SBCouchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchResponse.h; sourceTree = "<group>"; };
+		4BB4E966129056FC0091585B /* SBCouchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchResponse.m; sourceTree = "<group>"; };
+		4BB4E967129056FC0091585B /* SBCouchServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchServer.h; sourceTree = "<group>"; };
+		4BB4E968129056FC0091585B /* SBCouchServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchServer.m; sourceTree = "<group>"; };
+		4BB4E969129056FC0091585B /* SBCouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCouchView.h; sourceTree = "<group>"; };
+		4BB4E96A129056FC0091585B /* SBCouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCouchView.m; sourceTree = "<group>"; };
+		4BB4E96B129056FC0091585B /* SBJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSONScanner.h; sourceTree = "<group>"; };
+		4BB4E96C129056FC0091585B /* SBJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSONScanner.m; sourceTree = "<group>"; };
+		4BB4E96D129056FC0091585B /* SBOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBOrderedDictionary.h; sourceTree = "<group>"; };
+		4BB4E96E129056FC0091585B /* SBOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBOrderedDictionary.m; sourceTree = "<group>"; };
+		4BB4E96F129056FC0091585B /* DataKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataKeys.h; path = daemon/DataKeys.h; sourceTree = "<group>"; };
+		4BB4E970129056FC0091585B /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKeychainItem.h; path = daemon/EMKeychainItem.h; sourceTree = "<group>"; };
+		4BB4E971129056FC0091585B /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKeychainItem.m; path = daemon/EMKeychainItem.m; sourceTree = "<group>"; };
+		4BB4E972129056FC0091585B /* EMKeychainProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKeychainProxy.h; path = daemon/EMKeychainProxy.h; sourceTree = "<group>"; };
+		4BB4E973129056FC0091585B /* EMKeychainProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKeychainProxy.m; path = daemon/EMKeychainProxy.m; sourceTree = "<group>"; };
+		4BB4E975129056FC0091585B /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		4BB4E976129056FC0091585B /* NSCalendarDate+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendarDate+SBJSON.h"; sourceTree = "<group>"; };
+		4BB4E977129056FC0091585B /* NSCalendarDate+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate+SBJSON.m"; sourceTree = "<group>"; };
+		4BB4E978129056FC0091585B /* NSDictionary+CouchObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CouchObjC.h"; sourceTree = "<group>"; };
+		4BB4E979129056FC0091585B /* NSDictionary+CouchObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CouchObjC.m"; sourceTree = "<group>"; };
+		4BB4E97A129056FC0091585B /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		4BB4E97B129056FC0091585B /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		4BB4E97C129056FC0091585B /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		4BB4E97D129056FC0091585B /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		4BB4E97E129056FC0091585B /* KeyChainHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyChainHandler.h; path = daemon/KeyChainHandler.h; sourceTree = "<group>"; };
+		4BB4E97F129056FC0091585B /* KeyChainHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyChainHandler.m; path = daemon/KeyChainHandler.m; sourceTree = "<group>"; };
+		4BB4E980129056FC0091585B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = daemon/main.m; sourceTree = "<group>"; };
+		4BB4E981129056FC0091585B /* ReadingAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadingAssembler.h; path = daemon/ReadingAssembler.h; sourceTree = "<group>"; };
+		4BB4E982129056FC0091585B /* ReadingAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadingAssembler.m; path = daemon/ReadingAssembler.m; sourceTree = "<group>"; };
+		4BB4E983129056FC0091585B /* RemoteProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteProtocol.h; path = daemon/RemoteProtocol.h; sourceTree = "<group>"; };
+		4BB4E99C129056FC0091585B /* WLogger_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLogger_Prefix.pch; path = daemon/WLogger_Prefix.pch; sourceTree = "<group>"; };
+		4BB4E99D129056FC0091585B /* WLoggerDaemon_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLoggerDaemon_Prefix.pch; path = daemon/WLoggerDaemon_Prefix.pch; sourceTree = "<group>"; };
+		4BB4E99E129056FC0091585B /* WMR100NDeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WMR100NDeviceController.h; path = daemon/WMR100NDeviceController.h; sourceTree = "<group>"; };
+		4BB4E99F129056FC0091585B /* WMR100NDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WMR100NDeviceController.m; path = daemon/WMR100NDeviceController.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Cloudya-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cloudya-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Cloudya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudya.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BB4E91A129054420091585B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BB4EB03129057C70091585B /* IOKit.framework in Frameworks */,
+				4BB4EB04129057C70091585B /* Security.framework in Frameworks */,
+				4BB4EB05129057C70091585B /* Foundation.framework in Frameworks */,
+				4BB4EB06129057C70091585B /* CoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				4BB4E808129052F30091585B /* Security.framework in Frameworks */,
+				4BB4E80A129052F30091585B /* ServiceManagement.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4B006FC41294330300AF68A4 /* DBPrefsWindowController.h */,
+				4B006FC51294330300AF68A4 /* DBPrefsWindowController.m */,
+				256AC3D80F4B6AC300CF3369 /* CloudyaAppDelegate.h */,
+				256AC3D90F4B6AC300CF3369 /* CloudyaAppDelegate.m */,
+				4B006FC71294333F00AF68A4 /* PEPrefsWindowController.h */,
+				4B006FC81294333F00AF68A4 /* PEPrefsWindowController.m */,
+				4B0070BA1295996300AF68A4 /* PEStatusWindowController.h */,
+				4B0070BB1295996300AF68A4 /* PEStatusWindowController.m */,
+				4B5F1954129C15E800EC45D2 /* PEWeatherWindowController.h */,
+				4B5F1955129C15E800EC45D2 /* PEWeatherWindowController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Cloudya.app */,
+				4BB4E91C129054420091585B /* se.ejeklint.wldaemon */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* WLoggerApp */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4E954129056E80091585B /* daemon */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = WLoggerApp;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3F00F4B6AF500CF3369 /* Cloudya_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4B5F1C64129EA85200EC45D2 /* CloudApp.icns */,
+				4B5F1C3B129E9B2C00EC45D2 /* arrow4.png */,
+				4B5F1C34129E99F900EC45D2 /* arrow3.png */,
+				4B5F1C11129E88E100EC45D2 /* arrow.png */,
+				4B5F1C0E129E761000EC45D2 /* house.png */,
+				4B5F1B4D129D6CE200EC45D2 /* windCircle.png */,
+				4B5F1B3D129D6B5500EC45D2 /* current conditions.png */,
+				4B5F1994129C23FA00EC45D2 /* WeatherWindow.xib */,
+				4B006FD1129435E200AF68A4 /* Preferences.xib */,
+				4B0070BD12959B3300AF68A4 /* StatusWindow.xib */,
+				4B5F19DC129C2E9300EC45D2 /* cloudy.png */,
+				4B5F19DD129C2E9300EC45D2 /* partly cloudy.png */,
+				4B5F19DE129C2E9300EC45D2 /* rainy.png */,
+				4B5F19DF129C2E9300EC45D2 /* snowy.png */,
+				4B5F1963129C1F3300EC45D2 /* sunny.png */,
+				4B00702D1294697700AF68A4 /* Storage.png */,
+				4B00702E1294697700AF68A4 /* General.png */,
+				4BB4E9211290550F0091585B /* daemon-info.plist */,
+				4BB4E9221290550F0091585B /* daemon-launchd.plist */,
+				8D1107310486CEB800E47090 /* Cloudya-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4E805129052F30091585B /* IOKit.framework */,
+				4BB4E807129052F30091585B /* Security.framework */,
+				4BB4E809129052F30091585B /* ServiceManagement.framework */,
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				4BB4E917129053350091585B /* CoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BB4E954129056E80091585B /* daemon */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4E955129056FC0091585B /* AppDelegate.h */,
+				4BB4E956129056FC0091585B /* AppDelegate.m */,
+				4BB4E96F129056FC0091585B /* DataKeys.h */,
+				4BB4E980129056FC0091585B /* main.m */,
+				4BB4E981129056FC0091585B /* ReadingAssembler.h */,
+				4BB4E982129056FC0091585B /* ReadingAssembler.m */,
+				4BB4E983129056FC0091585B /* RemoteProtocol.h */,
+				4BB4E99C129056FC0091585B /* WLogger_Prefix.pch */,
+				4BB4E99D129056FC0091585B /* WLoggerDaemon_Prefix.pch */,
+				4BB4E99E129056FC0091585B /* WMR100NDeviceController.h */,
+				4BB4E99F129056FC0091585B /* WMR100NDeviceController.m */,
+				4BB4E9BF129057110091585B /* KeyChain */,
+				4BB4E957129056FC0091585B /* CouchObjC */,
+				4BB4E974129056FC0091585B /* JSON */,
+			);
+			name = daemon;
+			sourceTree = "<group>";
+		};
+		4BB4E957129056FC0091585B /* CouchObjC */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4E958129056FC0091585B /* CouchObjC.h */,
+				4BB4E959129056FC0091585B /* SBCouchDatabase.h */,
+				4BB4E95A129056FC0091585B /* SBCouchDatabase.m */,
+				4BB4E95B129056FC0091585B /* SBCouchDatabaseInfoDocument.h */,
+				4BB4E95C129056FC0091585B /* SBCouchDatabaseInfoDocument.m */,
+				4BB4E95D129056FC0091585B /* SBCouchDesignDocument.h */,
+				4BB4E95E129056FC0091585B /* SBCouchDesignDocument.m */,
+				4BB4E95F129056FC0091585B /* SBCouchDocument.h */,
+				4BB4E960129056FC0091585B /* SBCouchDocument.m */,
+				4BB4E961129056FC0091585B /* SBCouchEnumerator.h */,
+				4BB4E962129056FC0091585B /* SBCouchEnumerator.m */,
+				4BB4E963129056FC0091585B /* SBCouchQueryOptions.h */,
+				4BB4E964129056FC0091585B /* SBCouchQueryOptions.m */,
+				4BB4E965129056FC0091585B /* SBCouchResponse.h */,
+				4BB4E966129056FC0091585B /* SBCouchResponse.m */,
+				4BB4E967129056FC0091585B /* SBCouchServer.h */,
+				4BB4E968129056FC0091585B /* SBCouchServer.m */,
+				4BB4E969129056FC0091585B /* SBCouchView.h */,
+				4BB4E96A129056FC0091585B /* SBCouchView.m */,
+				4BB4E96B129056FC0091585B /* SBJSONScanner.h */,
+				4BB4E96C129056FC0091585B /* SBJSONScanner.m */,
+				4BB4E96D129056FC0091585B /* SBOrderedDictionary.h */,
+				4BB4E96E129056FC0091585B /* SBOrderedDictionary.m */,
+			);
+			name = CouchObjC;
+			path = daemon/CouchObjC;
+			sourceTree = "<group>";
+		};
+		4BB4E974129056FC0091585B /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4E975129056FC0091585B /* JSON.h */,
+				4BB4E976129056FC0091585B /* NSCalendarDate+SBJSON.h */,
+				4BB4E977129056FC0091585B /* NSCalendarDate+SBJSON.m */,
+				4BB4E978129056FC0091585B /* NSDictionary+CouchObjC.h */,
+				4BB4E979129056FC0091585B /* NSDictionary+CouchObjC.m */,
+				4BB4E97A129056FC0091585B /* NSObject+SBJSON.h */,
+				4BB4E97B129056FC0091585B /* NSObject+SBJSON.m */,
+				4BB4E97C129056FC0091585B /* NSString+SBJSON.h */,
+				4BB4E97D129056FC0091585B /* NSString+SBJSON.m */,
+			);
+			name = JSON;
+			path = daemon/JSON;
+			sourceTree = "<group>";
+		};
+		4BB4E9BF129057110091585B /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4E970129056FC0091585B /* EMKeychainItem.h */,
+				4BB4E971129056FC0091585B /* EMKeychainItem.m */,
+				4BB4E972129056FC0091585B /* EMKeychainProxy.h */,
+				4BB4E973129056FC0091585B /* EMKeychainProxy.m */,
+				4BB4E97E129056FC0091585B /* KeyChainHandler.h */,
+				4BB4E97F129056FC0091585B /* KeyChainHandler.m */,
+			);
+			name = KeyChain;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4BB4E91B129054420091585B /* se.ejeklint.wldaemon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BB4E920129054700091585B /* Build configuration list for PBXNativeTarget "se.ejeklint.wldaemon" */;
+			buildPhases = (
+				4BB4E919129054420091585B /* Sources */,
+				4BB4E91A129054420091585B /* Frameworks */,
+				4BB4ED3F129198500091585B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = se.ejeklint.wldaemon;
+			productName = se.ejeklint.wldaemon;
+			productReference = 4BB4E91C129054420091585B /* se.ejeklint.wldaemon */;
+			productType = "com.apple.product-type.tool";
+		};
+		8D1107260486CEB800E47090 /* Cloudya */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Cloudya" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				4BB4EB3412905B820091585B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BB4EB3712905BCA0091585B /* PBXTargetDependency */,
+			);
+			name = Cloudya;
+			productInstallPath = "$(HOME)/Applications";
+			productName = WLoggerApp;
+			productReference = 8D1107320486CEB800E47090 /* Cloudya.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Per Ejeklint";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Cloudya" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* WLoggerApp */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Cloudya */,
+				4BB4E91B129054420091585B /* se.ejeklint.wldaemon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BB0922212A9554700A9AFB4 /* daemon-info.plist in Resources */,
+				4BB0922312A9554700A9AFB4 /* daemon-launchd.plist in Resources */,
+				4B8D142B12A9532100698626 /* Cloudya-Info.plist in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				4B006FD3129435E200AF68A4 /* Preferences.xib in Resources */,
+				4B00702F1294697700AF68A4 /* Storage.png in Resources */,
+				4B0070301294697700AF68A4 /* General.png in Resources */,
+				4B0070BF12959B3300AF68A4 /* StatusWindow.xib in Resources */,
+				4B5F1964129C1F3300EC45D2 /* sunny.png in Resources */,
+				4B5F1996129C23FA00EC45D2 /* WeatherWindow.xib in Resources */,
+				4B5F19E0129C2E9300EC45D2 /* cloudy.png in Resources */,
+				4B5F19E1129C2E9300EC45D2 /* partly cloudy.png in Resources */,
+				4B5F19E2129C2E9300EC45D2 /* rainy.png in Resources */,
+				4B5F19E3129C2E9300EC45D2 /* snowy.png in Resources */,
+				4B5F1B3E129D6B5500EC45D2 /* current conditions.png in Resources */,
+				4B5F1B56129D6CE200EC45D2 /* windCircle.png in Resources */,
+				4B5F1C0F129E761000EC45D2 /* house.png in Resources */,
+				4B5F1C12129E88E100EC45D2 /* arrow.png in Resources */,
+				4B5F1C35129E99F900EC45D2 /* arrow3.png in Resources */,
+				4B5F1C3C129E9B2C00EC45D2 /* arrow4.png in Resources */,
+				4B5F1C65129EA85200EC45D2 /* CloudApp.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4BB4ED3F129198500091585B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "touch daemon/main.m";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BB4E919129054420091585B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BB4E9A0129056FC0091585B /* AppDelegate.m in Sources */,
+				4BB4E9A1129056FC0091585B /* SBCouchDatabase.m in Sources */,
+				4BB4E9A2129056FC0091585B /* SBCouchDatabaseInfoDocument.m in Sources */,
+				4BB4E9A3129056FC0091585B /* SBCouchDesignDocument.m in Sources */,
+				4BB4E9A4129056FC0091585B /* SBCouchDocument.m in Sources */,
+				4BB4E9A5129056FC0091585B /* SBCouchEnumerator.m in Sources */,
+				4BB4E9A6129056FC0091585B /* SBCouchQueryOptions.m in Sources */,
+				4BB4E9A7129056FC0091585B /* SBCouchResponse.m in Sources */,
+				4BB4E9A8129056FC0091585B /* SBCouchServer.m in Sources */,
+				4BB4E9A9129056FC0091585B /* SBCouchView.m in Sources */,
+				4BB4E9AA129056FC0091585B /* SBJSONScanner.m in Sources */,
+				4BB4E9AB129056FC0091585B /* SBOrderedDictionary.m in Sources */,
+				4BB4E9AC129056FC0091585B /* EMKeychainItem.m in Sources */,
+				4BB4E9AD129056FC0091585B /* EMKeychainProxy.m in Sources */,
+				4BB4E9AE129056FC0091585B /* NSCalendarDate+SBJSON.m in Sources */,
+				4BB4E9AF129056FC0091585B /* NSDictionary+CouchObjC.m in Sources */,
+				4BB4E9B0129056FC0091585B /* NSObject+SBJSON.m in Sources */,
+				4BB4E9B1129056FC0091585B /* NSString+SBJSON.m in Sources */,
+				4BB4E9B2129056FC0091585B /* KeyChainHandler.m in Sources */,
+				4BB4E9B3129056FC0091585B /* main.m in Sources */,
+				4BB4E9B4129056FC0091585B /* ReadingAssembler.m in Sources */,
+				4BB4E9BE129056FC0091585B /* WMR100NDeviceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				256AC3DA0F4B6AC300CF3369 /* CloudyaAppDelegate.m in Sources */,
+				4B006FC61294330300AF68A4 /* DBPrefsWindowController.m in Sources */,
+				4B006FC91294333F00AF68A4 /* PEPrefsWindowController.m in Sources */,
+				4B0070BC1295996300AF68A4 /* PEStatusWindowController.m in Sources */,
+				4B5F1956129C15E800EC45D2 /* PEWeatherWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BB4EB3712905BCA0091585B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BB4E91B129054420091585B /* se.ejeklint.wldaemon */;
+			targetProxy = 4BB4EB3612905BCA0091585B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		4B006FD1129435E200AF68A4 /* Preferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B006FD2129435E200AF68A4 /* English */,
+			);
+			name = Preferences.xib;
+			sourceTree = "<group>";
+		};
+		4B0070BD12959B3300AF68A4 /* StatusWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B0070BE12959B3300AF68A4 /* English */,
+			);
+			name = StatusWindow.xib;
+			sourceTree = "<group>";
+		};
+		4B5F1994129C23FA00EC45D2 /* WeatherWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B5F1995129C23FA00EC45D2 /* English */,
+			);
+			name = WeatherWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4BB4E91E129054420091585B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Codesign Certificate for test";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"$(SRCROOT)/daemon-info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"$(SRCROOT)/daemon-launchd.plist",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = se.ejeklint.wldaemon;
+			};
+			name = Debug;
+		};
+		4BB4E91F129054420091585B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Codesign Certificate for test";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"$(SRCROOT)/daemon-info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"$(SRCROOT)/daemon-launchd.plist",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = se.ejeklint.wldaemon;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Codesign Certificate for test";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Cloudya_Prefix.pch;
+				INFOPLIST_FILE = "Cloudya-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Cloudya;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Codesign Certificate for test";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Cloudya_Prefix.pch;
+				INFOPLIST_FILE = "Cloudya-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Cloudya;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BB4E920129054700091585B /* Build configuration list for PBXNativeTarget "se.ejeklint.wldaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BB4E91E129054420091585B /* Debug */,
+				4BB4E91F129054420091585B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Cloudya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Cloudya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
