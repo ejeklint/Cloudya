@@ -26,7 +26,7 @@ static BOOL gDebugPrint;
 		
 		// TODO: Refactor this crap away
 		// Postpone the setup a few seconds to make sure other stuff is up and running
-		[self performSelector:@selector(setup:) withObject:self afterDelay:5.0];
+		[self performSelector:@selector(setup:) withObject:self afterDelay:1.0];
 		
 		return self;
 	}
@@ -39,9 +39,8 @@ static BOOL gDebugPrint;
 
 	ra = [[ReadingAssembler alloc] init];
 	wmr100n = [[WMR100NDeviceController alloc] init];	
-	weatherReport = [[SBCouchDocument alloc] init];
+//	currentConditions = [[SBCouchDocument alloc] init];
 	
-	currentStatus = [NSMutableDictionary dictionaryWithCapacity:5];
 	
 	// Get the settings. If no exist, create a default set save it.
 	NSDictionary *settings = [self getSettings];
@@ -53,7 +52,7 @@ static BOOL gDebugPrint;
 		[new setObject:@"" forKey:@"couchDBUser"];
 		[new setObject:@"wdata" forKey:@"couchDBDBName"];
 		[new setObject:@"2" forKey:@"couchDBUpdateInterval"];
-		[new setObject:[NSNumber numberWithBool:YES] forKey:@"useComputersClock"];
+//		[new setObject:[NSNumber numberWithBool:YES] forKey:@"useComputersClock"];
 		[self saveSettings:new];
 		settings = new;
 	}
@@ -87,6 +86,7 @@ static BOOL gDebugPrint;
 
 - (BOOL) setDebug: (NSNumber*) debug {
 	gDebugPrint = [debug boolValue];
+	NSLog(@"Debug log set to %@", (gDebugPrint) ? @"YES" : @"NO");
 	return gDebugPrint;
 }
 
@@ -98,13 +98,12 @@ static BOOL gDebugPrint;
 }
 
 - (NSDictionary *) getLevels {
-	NSLog(@"Returning current status %@", currentStatus);
-	return [NSDictionary dictionaryWithDictionary:currentStatus];
+	return [NSDictionary dictionaryWithDictionary:devicesStatus];
 }
 
 - (NSDictionary *) getCurrentConditions
 {
-	return [NSDictionary dictionaryWithDictionary:weatherReport];
+	return [NSDictionary dictionaryWithDictionary:currentConditions];
 }
 
 
@@ -156,7 +155,7 @@ static BOOL gDebugPrint;
 	
 	// Test if connection is ok
 	if ([tmpCouch version] == nil) {
-		NSLog(@"Error connecting to CouchDB at %@", [couch serverURLAsString]);
+		NSLog(@"No CouchDB available at %@", [couch serverURLAsString]);
 		return NO;
 	}
 	
@@ -174,10 +173,10 @@ static BOOL gDebugPrint;
 	// Store status in db
 	SBCouchDocument *storedReport = [db getDocument:KEY_DOC_STATUS withRevisionCount:NO andInfo:NO revision:nil];
 	if (!storedReport) {
-		storedReport = [[SBCouchDocument alloc] initWithNSDictionary:currentStatus couchDatabase:db];
+		storedReport = [[SBCouchDocument alloc] initWithNSDictionary:devicesStatus couchDatabase:db];
 		[storedReport setObject:KEY_DOC_STATUS forKey:KEY_COUCH_ID];
 	} else {
-		[storedReport addEntriesFromDictionary:currentStatus];
+		[storedReport addEntriesFromDictionary:devicesStatus];
 	}
 	[storedReport setObject:KEY_DOC_STATUS forKey:KEY_DOC_DOCTYPE];
 	SBCouchResponse *response =[db putDocument:storedReport named:KEY_DOC_STATUS];
@@ -278,10 +277,10 @@ static BOOL gDebugPrint;
 	[readingWithTimeStamp setObject:now forKey:KEY_TIMESTAMP];
 	[readingWithTimeStamp setObject:[userInfo objectForKey:KEY_READINGS] forKey:KEY_READINGS];
 	
-	if (!weatherReport) {
-		weatherReport = [NSMutableDictionary dictionaryWithCapacity:5];
+	if (!currentConditions) {
+		currentConditions = [NSMutableDictionary dictionaryWithCapacity:5];
 	}
-	[weatherReport setObject:readingWithTimeStamp forKey:[userInfo objectForKey:KEY_READING_TYPE]];
+	[currentConditions setObject:readingWithTimeStamp forKey:[userInfo objectForKey:KEY_READING_TYPE]];
 }
 
 	
@@ -293,9 +292,9 @@ static BOOL gDebugPrint;
 	[storedReport setObject:KEY_DOC_READINGS forKey:KEY_DOC_DOCTYPE];
 	
 	// Store all nested values in weatherReport
-	for (id key in weatherReport) {
+	for (id key in currentConditions) {
 		// Check if not too old (should be younger than 120 seconds)
-		NSDictionary *dict = [weatherReport objectForKey:key];
+		NSDictionary *dict = [currentConditions objectForKey:key];
 		NSDate *timestamp = (NSDate*) [dict objectForKey:KEY_TIMESTAMP];
 		if ([timestamp timeIntervalSinceNow] < -120.0) {
 			if (DEBUGALOT)
@@ -312,19 +311,21 @@ static BOOL gDebugPrint;
 - (void) statusReportListener:(NSNotification *)notification {
 	NSDictionary *userInfo = [notification userInfo];
 	
-	[currentStatus addEntriesFromDictionary:userInfo];
+	[devicesStatus addEntriesFromDictionary:userInfo];
 }
 
 
 - (void)deviceAddedListener:(NSNotification *)notification {
 	(void) notification;
 	
-	NSLog(@"Weather station plugged in. WLoggerDaemon build 3");
+	NSLog(@"Weather station plugged in");
 	
+	devicesStatus = [NSMutableDictionary dictionaryWithCapacity:5];
+	currentConditions = [NSMutableDictionary dictionaryWithCapacity:5];
+
 	NSDictionary *settings = [self getSettings];
 	
 	[self setupCouchDB:settings];
-	
 	
 /*	
 	[GrowlApplicationBridge
@@ -351,9 +352,13 @@ static BOOL gDebugPrint;
 	}
 	
 	// Remove ongoing report and reset minute cycle count
-	if (weatherReport) {
-		[weatherReport release];
-		weatherReport = nil;
+	if (currentConditions) {
+		[currentConditions release];
+		currentConditions = nil;
+	}
+	if (devicesStatus) {
+		[devicesStatus release];
+		devicesStatus= nil;
 	}
 	
 /*	[GrowlApplicationBridge

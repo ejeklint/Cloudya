@@ -59,14 +59,14 @@
 	
 	if (jobDict) {
 		// Installed. TODO: Check version and see if it needs upgrade
-		NSLog(@"Daemon already installed");
+		NSLog(@"Found installed wldaemon");
 		[jobDict release];
 		if ([self toolNeedsUpgrade: jobLabel] == NO)
 			return;
 		
 		removeOldJob = YES;
 	}
-
+	
 	AuthorizationRef auth;
 	OSStatus authResult = AuthorizationCreate(NULL,
 											  NULL,
@@ -99,7 +99,7 @@
 	}
 	
 	if (removeOldJob == YES) {
-		NSLog(@"stopping and removing old daemon");
+		NSLog(@"Stopping and removing old wldaemon");
 		// Remove wldaemon
 		NSError *error = nil;
 		BOOL removed = SMJobRemove(kSMDomainSystemLaunchd,
@@ -108,12 +108,14 @@
 								   true,
 								   (CFErrorRef*) &error);
 		if (!removed) {
-			NSLog(@"Failed to remove the wldaemon");
+			NSLog(@"Failed to remove existing wldaemon");
 			[NSApp presentError: error];
 		}
 	}
 	
 	NSLog(@"Will attempt to install or upgrade wldaemon");
+	// Try sleeping a little
+	[NSThread sleepForTimeInterval:2.0]; 
 	
 	// Blessed be the daemon
 	NSError *error = nil;
@@ -126,12 +128,12 @@
 		[NSApp presentError: error];
 		return;
 	}
-	NSLog(@"successfully blessed wldaemon");
+	NSLog(@"Successfully blessed wldaemon");
 
 	AuthorizationFree(auth, kAuthorizationFlagDefaults);
 	
 	// Give daemon time to initialise
-	[NSThread sleepForTimeInterval:10.0]; 
+	[NSThread sleepForTimeInterval:5.0]; 
 }
 
 - (void) applicationDidFinishLaunching: (NSNotification *) aNotification {

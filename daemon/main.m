@@ -8,14 +8,15 @@
 
 void SIGTERM_handler(const int sigid)
 {
-	NSLog(@"SIGTERM received");
-	exit(0);
-	
-/*	CFRunLoopRef rl = [[NSRunLoop currentRunLoop] getCFRunLoop];
-	if (rl == NULL)
+	CFRunLoopRef rl = [[NSRunLoop currentRunLoop] getCFRunLoop];
+	if (rl == NULL) {
+		NSLog(@"exit(1)");
 		exit(1); // Oops. Exit!
-	else
-		CFRunLoopStop(rl); */
+	} else {
+		CFRunLoopStop(rl);
+		NSLog(@"exit(0)");
+		exit(0);
+	}
 }
 
 
@@ -24,7 +25,13 @@ int main(int argc, char *argv[])
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     signal(SIGTERM, (sig_t)SIGTERM_handler);
 	
-	NSLog(@"Starting up version 7");
+	NSString *name = [NSString stringWithCString:argv[0]];
+	NSString *installedToolPath = [[NSString alloc] initWithFormat:@"file://%@", name];
+	NSURL *installedURL = [NSURL URLWithString:installedToolPath];
+	
+	NSDictionary *installedToolDict = (NSDictionary*) CFBundleCopyInfoDictionaryForURL((CFURLRef) installedURL);
+	NSString *version = (installedToolDict) ? (NSString*) [installedToolDict objectForKey:@"CFBundleVersion"] : @"?";
+	NSLog(@"Starting wldaemon version %@", version);
 	AppDelegate *ad = [[AppDelegate alloc] init];
 
 	[[NSRunLoop currentRunLoop] run];

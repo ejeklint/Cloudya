@@ -23,8 +23,8 @@
 	
     SBCouchServer *couch;
     SBCouchDatabase *db;
-	NSMutableDictionary *weatherReport;
-	NSMutableDictionary *currentStatus;
+	NSMutableDictionary *currentConditions;
+	NSMutableDictionary *devicesStatus;
 }
 
 + (BOOL) debugPrint;
