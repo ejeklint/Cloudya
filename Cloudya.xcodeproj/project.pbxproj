@@ -23,14 +23,11 @@
 		4B5F19E1129C2E9300EC45D2 /* partly cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DD129C2E9300EC45D2 /* partly cloudy.png */; };
 		4B5F19E2129C2E9300EC45D2 /* rainy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DE129C2E9300EC45D2 /* rainy.png */; };
 		4B5F19E3129C2E9300EC45D2 /* snowy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DF129C2E9300EC45D2 /* snowy.png */; };
-		4B5F1B3E129D6B5500EC45D2 /* current conditions.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1B3D129D6B5500EC45D2 /* current conditions.png */; };
-		4B5F1B56129D6CE200EC45D2 /* windCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1B4D129D6CE200EC45D2 /* windCircle.png */; };
 		4B5F1C0F129E761000EC45D2 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C0E129E761000EC45D2 /* house.png */; };
-		4B5F1C12129E88E100EC45D2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C11129E88E100EC45D2 /* arrow.png */; };
-		4B5F1C35129E99F900EC45D2 /* arrow3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C34129E99F900EC45D2 /* arrow3.png */; };
-		4B5F1C3C129E9B2C00EC45D2 /* arrow4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C3B129E9B2C00EC45D2 /* arrow4.png */; };
 		4B5F1C65129EA85200EC45D2 /* CloudApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C64129EA85200EC45D2 /* CloudApp.icns */; };
 		4B8D142B12A9532100698626 /* Cloudya-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107310486CEB800E47090 /* Cloudya-Info.plist */; };
+		4B8E882D12C6118800A91B1D /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E882C12C6118800A91B1D /* EMKeychainItem.m */; };
+		4B8E882E12C6118800A91B1D /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E882C12C6118800A91B1D /* EMKeychainItem.m */; };
 		4BB0922212A9554700A9AFB4 /* daemon-info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BB4E9211290550F0091585B /* daemon-info.plist */; };
 		4BB0922312A9554700A9AFB4 /* daemon-launchd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BB4E9221290550F0091585B /* daemon-launchd.plist */; };
 		4BB4E808129052F30091585B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB4E807129052F30091585B /* Security.framework */; };
@@ -47,13 +44,10 @@
 		4BB4E9A9129056FC0091585B /* SBCouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E96A129056FC0091585B /* SBCouchView.m */; };
 		4BB4E9AA129056FC0091585B /* SBJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E96C129056FC0091585B /* SBJSONScanner.m */; };
 		4BB4E9AB129056FC0091585B /* SBOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E96E129056FC0091585B /* SBOrderedDictionary.m */; };
-		4BB4E9AC129056FC0091585B /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E971129056FC0091585B /* EMKeychainItem.m */; };
-		4BB4E9AD129056FC0091585B /* EMKeychainProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E973129056FC0091585B /* EMKeychainProxy.m */; };
 		4BB4E9AE129056FC0091585B /* NSCalendarDate+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E977129056FC0091585B /* NSCalendarDate+SBJSON.m */; };
 		4BB4E9AF129056FC0091585B /* NSDictionary+CouchObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E979129056FC0091585B /* NSDictionary+CouchObjC.m */; };
 		4BB4E9B0129056FC0091585B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E97B129056FC0091585B /* NSObject+SBJSON.m */; };
 		4BB4E9B1129056FC0091585B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E97D129056FC0091585B /* NSString+SBJSON.m */; };
-		4BB4E9B2129056FC0091585B /* KeyChainHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E97F129056FC0091585B /* KeyChainHandler.m */; };
 		4BB4E9B3129056FC0091585B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E980129056FC0091585B /* main.m */; };
 		4BB4E9B4129056FC0091585B /* ReadingAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E982129056FC0091585B /* ReadingAssembler.m */; };
 		4BB4E9BE129056FC0091585B /* WMR100NDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E99F129056FC0091585B /* WMR100NDeviceController.m */; };
@@ -62,6 +56,7 @@
 		4BB4EB05129057C70091585B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		4BB4EB06129057C70091585B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB4E917129053350091585B /* CoreServices.framework */; };
 		4BB4EB3512905BB30091585B /* se.ejeklint.wldaemon in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB4E91C129054420091585B /* se.ejeklint.wldaemon */; };
+		4BC0EE7412C7987D00A015EB /* wind.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC0EE7312C7987D00A015EB /* wind.png */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -118,13 +113,10 @@
 		4B5F19DD129C2E9300EC45D2 /* partly cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "partly cloudy.png"; sourceTree = "<group>"; };
 		4B5F19DE129C2E9300EC45D2 /* rainy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainy.png; sourceTree = "<group>"; };
 		4B5F19DF129C2E9300EC45D2 /* snowy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowy.png; sourceTree = "<group>"; };
-		4B5F1B3D129D6B5500EC45D2 /* current conditions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "current conditions.png"; sourceTree = "<group>"; };
-		4B5F1B4D129D6CE200EC45D2 /* windCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windCircle.png; sourceTree = "<group>"; };
 		4B5F1C0E129E761000EC45D2 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
-		4B5F1C11129E88E100EC45D2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		4B5F1C34129E99F900EC45D2 /* arrow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow3.png; sourceTree = "<group>"; };
-		4B5F1C3B129E9B2C00EC45D2 /* arrow4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow4.png; sourceTree = "<group>"; };
 		4B5F1C64129EA85200EC45D2 /* CloudApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = CloudApp.icns; sourceTree = "<group>"; };
+		4B8E882B12C6118800A91B1D /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
+		4B8E882C12C6118800A91B1D /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
 		4BB4E805129052F30091585B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		4BB4E807129052F30091585B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4BB4E809129052F30091585B /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
@@ -158,10 +150,6 @@
 		4BB4E96D129056FC0091585B /* SBOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBOrderedDictionary.h; sourceTree = "<group>"; };
 		4BB4E96E129056FC0091585B /* SBOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBOrderedDictionary.m; sourceTree = "<group>"; };
 		4BB4E96F129056FC0091585B /* DataKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataKeys.h; path = daemon/DataKeys.h; sourceTree = "<group>"; };
-		4BB4E970129056FC0091585B /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKeychainItem.h; path = daemon/EMKeychainItem.h; sourceTree = "<group>"; };
-		4BB4E971129056FC0091585B /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKeychainItem.m; path = daemon/EMKeychainItem.m; sourceTree = "<group>"; };
-		4BB4E972129056FC0091585B /* EMKeychainProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKeychainProxy.h; path = daemon/EMKeychainProxy.h; sourceTree = "<group>"; };
-		4BB4E973129056FC0091585B /* EMKeychainProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKeychainProxy.m; path = daemon/EMKeychainProxy.m; sourceTree = "<group>"; };
 		4BB4E975129056FC0091585B /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		4BB4E976129056FC0091585B /* NSCalendarDate+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendarDate+SBJSON.h"; sourceTree = "<group>"; };
 		4BB4E977129056FC0091585B /* NSCalendarDate+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate+SBJSON.m"; sourceTree = "<group>"; };
@@ -171,8 +159,6 @@
 		4BB4E97B129056FC0091585B /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
 		4BB4E97C129056FC0091585B /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
 		4BB4E97D129056FC0091585B /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		4BB4E97E129056FC0091585B /* KeyChainHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyChainHandler.h; path = daemon/KeyChainHandler.h; sourceTree = "<group>"; };
-		4BB4E97F129056FC0091585B /* KeyChainHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyChainHandler.m; path = daemon/KeyChainHandler.m; sourceTree = "<group>"; };
 		4BB4E980129056FC0091585B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = daemon/main.m; sourceTree = "<group>"; };
 		4BB4E981129056FC0091585B /* ReadingAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadingAssembler.h; path = daemon/ReadingAssembler.h; sourceTree = "<group>"; };
 		4BB4E982129056FC0091585B /* ReadingAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadingAssembler.m; path = daemon/ReadingAssembler.m; sourceTree = "<group>"; };
@@ -181,6 +167,7 @@
 		4BB4E99D129056FC0091585B /* WLoggerDaemon_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLoggerDaemon_Prefix.pch; path = daemon/WLoggerDaemon_Prefix.pch; sourceTree = "<group>"; };
 		4BB4E99E129056FC0091585B /* WMR100NDeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WMR100NDeviceController.h; path = daemon/WMR100NDeviceController.h; sourceTree = "<group>"; };
 		4BB4E99F129056FC0091585B /* WMR100NDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WMR100NDeviceController.m; path = daemon/WMR100NDeviceController.m; sourceTree = "<group>"; };
+		4BC0EE7312C7987D00A015EB /* wind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wind.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Cloudya-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cloudya-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Cloudya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -213,6 +200,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4B8E882B12C6118800A91B1D /* EMKeychainItem.h */,
+				4B8E882C12C6118800A91B1D /* EMKeychainItem.m */,
 				4B006FC41294330300AF68A4 /* DBPrefsWindowController.h */,
 				4B006FC51294330300AF68A4 /* DBPrefsWindowController.m */,
 				256AC3D80F4B6AC300CF3369 /* CloudyaAppDelegate.h */,
@@ -279,12 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				4B5F1C64129EA85200EC45D2 /* CloudApp.icns */,
-				4B5F1C3B129E9B2C00EC45D2 /* arrow4.png */,
-				4B5F1C34129E99F900EC45D2 /* arrow3.png */,
-				4B5F1C11129E88E100EC45D2 /* arrow.png */,
 				4B5F1C0E129E761000EC45D2 /* house.png */,
-				4B5F1B4D129D6CE200EC45D2 /* windCircle.png */,
-				4B5F1B3D129D6B5500EC45D2 /* current conditions.png */,
 				4B5F1994129C23FA00EC45D2 /* WeatherWindow.xib */,
 				4B006FD1129435E200AF68A4 /* Preferences.xib */,
 				4B0070BD12959B3300AF68A4 /* StatusWindow.xib */,
@@ -294,6 +278,7 @@
 				4B5F19DF129C2E9300EC45D2 /* snowy.png */,
 				4B5F1963129C1F3300EC45D2 /* sunny.png */,
 				4B00702D1294697700AF68A4 /* Storage.png */,
+				4BC0EE7312C7987D00A015EB /* wind.png */,
 				4B00702E1294697700AF68A4 /* General.png */,
 				4BB4E9211290550F0091585B /* daemon-info.plist */,
 				4BB4E9221290550F0091585B /* daemon-launchd.plist */,
@@ -331,7 +316,6 @@
 				4BB4E99D129056FC0091585B /* WLoggerDaemon_Prefix.pch */,
 				4BB4E99E129056FC0091585B /* WMR100NDeviceController.h */,
 				4BB4E99F129056FC0091585B /* WMR100NDeviceController.m */,
-				4BB4E9BF129057110091585B /* KeyChain */,
 				4BB4E957129056FC0091585B /* CouchObjC */,
 				4BB4E974129056FC0091585B /* JSON */,
 			);
@@ -384,19 +368,6 @@
 			);
 			name = JSON;
 			path = daemon/JSON;
-			sourceTree = "<group>";
-		};
-		4BB4E9BF129057110091585B /* KeyChain */ = {
-			isa = PBXGroup;
-			children = (
-				4BB4E970129056FC0091585B /* EMKeychainItem.h */,
-				4BB4E971129056FC0091585B /* EMKeychainItem.m */,
-				4BB4E972129056FC0091585B /* EMKeychainProxy.h */,
-				4BB4E973129056FC0091585B /* EMKeychainProxy.m */,
-				4BB4E97E129056FC0091585B /* KeyChainHandler.h */,
-				4BB4E97F129056FC0091585B /* KeyChainHandler.m */,
-			);
-			name = KeyChain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,13 +458,9 @@
 				4B5F19E1129C2E9300EC45D2 /* partly cloudy.png in Resources */,
 				4B5F19E2129C2E9300EC45D2 /* rainy.png in Resources */,
 				4B5F19E3129C2E9300EC45D2 /* snowy.png in Resources */,
-				4B5F1B3E129D6B5500EC45D2 /* current conditions.png in Resources */,
-				4B5F1B56129D6CE200EC45D2 /* windCircle.png in Resources */,
 				4B5F1C0F129E761000EC45D2 /* house.png in Resources */,
-				4B5F1C12129E88E100EC45D2 /* arrow.png in Resources */,
-				4B5F1C35129E99F900EC45D2 /* arrow3.png in Resources */,
-				4B5F1C3C129E9B2C00EC45D2 /* arrow4.png in Resources */,
 				4B5F1C65129EA85200EC45D2 /* CloudApp.icns in Resources */,
+				4BC0EE7412C7987D00A015EB /* wind.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,16 +499,14 @@
 				4BB4E9A9129056FC0091585B /* SBCouchView.m in Sources */,
 				4BB4E9AA129056FC0091585B /* SBJSONScanner.m in Sources */,
 				4BB4E9AB129056FC0091585B /* SBOrderedDictionary.m in Sources */,
-				4BB4E9AC129056FC0091585B /* EMKeychainItem.m in Sources */,
-				4BB4E9AD129056FC0091585B /* EMKeychainProxy.m in Sources */,
 				4BB4E9AE129056FC0091585B /* NSCalendarDate+SBJSON.m in Sources */,
 				4BB4E9AF129056FC0091585B /* NSDictionary+CouchObjC.m in Sources */,
 				4BB4E9B0129056FC0091585B /* NSObject+SBJSON.m in Sources */,
 				4BB4E9B1129056FC0091585B /* NSString+SBJSON.m in Sources */,
-				4BB4E9B2129056FC0091585B /* KeyChainHandler.m in Sources */,
 				4BB4E9B3129056FC0091585B /* main.m in Sources */,
 				4BB4E9B4129056FC0091585B /* ReadingAssembler.m in Sources */,
 				4BB4E9BE129056FC0091585B /* WMR100NDeviceController.m in Sources */,
+				4B8E882E12C6118800A91B1D /* EMKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +520,7 @@
 				4B006FC91294333F00AF68A4 /* PEPrefsWindowController.m in Sources */,
 				4B0070BC1295996300AF68A4 /* PEStatusWindowController.m in Sources */,
 				4B5F1956129C15E800EC45D2 /* PEWeatherWindowController.m in Sources */,
+				4B8E882D12C6118800A91B1D /* EMKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

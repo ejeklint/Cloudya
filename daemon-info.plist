@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>wldaemon</string>
 	<key>CFBundleVersion</key>
-	<string>20</string>
+	<string>29</string>
 	<key>SMAuthorizedClients</key>
 	<array>
 		<string>identifier &quot;se.ejeklint.Cloudya&quot; and certificate leaf = H&quot;7EE8ED007191BA517AA70CA4B069EEC90061575A&quot;</string>

@@ -12,7 +12,12 @@
 @interface PEPrefsWindowController : DBPrefsWindowController {
 	IBOutlet NSView *generalPrefsView;
 	IBOutlet NSView *storagePrefsView;
+	
+	NSDictionary *settings;
+	NSConnection *connection;
+	id proxy;
 }
 
+- (IBAction) validateCouchDB: (id) sender;
 
 @end

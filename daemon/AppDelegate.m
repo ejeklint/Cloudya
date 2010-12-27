@@ -1,9 +1,9 @@
 
 
 #import "AppDelegate.h"
-#import "KeyChainHandler.h"
 #import "DataKeys.h"
 #import "RemoteProtocol.h"
+#import	"EMKeychainItem.h"
 
 //#import <Growl/GrowlApplicationBridge.h>
 
@@ -24,7 +24,6 @@ static BOOL gDebugPrint;
 	{
 		gDebugPrint = NO;
 		
-		// TODO: Refactor this crap away
 		// Postpone the setup a few seconds to make sure other stuff is up and running
 		[self performSelector:@selector(setup:) withObject:self afterDelay:1.0];
 		
@@ -39,23 +38,6 @@ static BOOL gDebugPrint;
 
 	ra = [[ReadingAssembler alloc] init];
 	wmr100n = [[WMR100NDeviceController alloc] init];	
-//	currentConditions = [[SBCouchDocument alloc] init];
-	
-	
-	// Get the settings. If no exist, create a default set save it.
-	NSDictionary *settings = [self getSettings];
-	if (!settings || [settings count] == 0) {
-		// Set up default settings
-		NSMutableDictionary *new = [[NSMutableDictionary alloc] initWithCapacity:6];
-		[new setObject:@"localhost" forKey:@"couchDBURL"];
-		[new setObject:[NSNumber numberWithInt:5984] forKey:@"couchDBPort"];
-		[new setObject:@"" forKey:@"couchDBUser"];
-		[new setObject:@"wdata" forKey:@"couchDBDBName"];
-		[new setObject:@"2" forKey:@"couchDBUpdateInterval"];
-//		[new setObject:[NSNumber numberWithBool:YES] forKey:@"useComputersClock"];
-		[self saveSettings:new];
-		settings = new;
-	}
 	
 	// Set up remote objects connection
 	serverConnection=[[NSConnection new] autorelease];
@@ -77,81 +59,51 @@ static BOOL gDebugPrint;
 	myTickTimer = [[NSTimer alloc] initWithFireDate:nextHour interval:3600 target:self selector:@selector(hourChime:) userInfo:NULL repeats:YES];
 	[[NSRunLoop currentRunLoop] addTimer:myTickTimer forMode:NSDefaultRunLoopMode];
 	
+	[self setupCouchDB:[self getSettings]];
+	
 	// Set up self as Growl delegate.
 	//		[GrowlApplicationBridge setGrowlDelegate:self];
 }
 
 
-#pragma mark Remote Objects methods BEGIN
-
-- (BOOL) setDebug: (NSNumber*) debug {
-	gDebugPrint = [debug boolValue];
-	NSLog(@"Debug log set to %@", (gDebugPrint) ? @"YES" : @"NO");
-	return gDebugPrint;
-}
-
-
-- (NSDictionary *) getSettings {
-	CFArrayRef aref = CFPreferencesCopyKeyList(APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
-	CFDictionaryRef dref = CFPreferencesCopyMultiple(aref, APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
-	return (NSDictionary*) dref;
-}
-
-- (NSDictionary *) getLevels {
-	return [NSDictionary dictionaryWithDictionary:devicesStatus];
-}
-
-- (NSDictionary *) getCurrentConditions
+- (void) dealloc
 {
-	return [NSDictionary dictionaryWithDictionary:currentConditions];
+	[myTickTimer invalidate];
+	[myTickTimer release];
+	[serverConnection release];
+	[ra release];
+	[wmr100n release];
+	[db release];
+	[couch release];
+	[super release];
 }
-
-
-- (BOOL) saveSettings: (NSDictionary *) settings {
-	for (id key in settings) {
-		CFPreferencesSetValue((CFStringRef)key, [settings objectForKey:key], APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
-	}
-	// Set absent user to empty string
-	if (![settings objectForKey:@"couchDBUser"]) {
-		CFPreferencesSetValue(CFSTR("couchDBUser"), CFSTR(""), APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
-	}
-	// Save to disk
-	CFPreferencesSynchronize(APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
-	
-	// Sync globals
-	int interval = (int) [[settings objectForKey:@"couchDBUpdateInterval"] integerValue];
-	if (interval < 1 || interval > 1000)
-		interval = 2; // Reasonable default value if it should be missing
-	[ra setInterval: interval];
-	
-	// Re-do the twitter and couchdb setup in case settings have changed
-	[self setupCouchDB:settings];
-	
-	return YES;
-}
-
-#pragma mark Remote Objects methods END
 
 
 - (BOOL) setupCouchDB: (NSDictionary*) settings {	
-	NSNumber *port = [settings valueForKey:@"couchDBPort"];	
-	NSString *couchDBDBName = [settings valueForKey:@"couchDBDBName"];
-	NSString *username = [settings valueForKey:@"couchDBUser"];
+	NSString *couchDBHost = [settings valueForKey:@"couchDBHost"];
+	NSNumber *couchDBPort = [settings valueForKey:@"couchDBPort"];
+	NSString *couchDBName = [settings valueForKey:@"couchDBName"];
+	NSString *username = [settings valueForKey:@"couchDBUsername"];
 	NSString *password = [settings valueForKey:@"couchDBPassword"];
+	NSNumber *updateInterval = [settings valueForKey:@"couchDBUpdateInterval"];
 	
-	NSString *hoststring;
-	if ([username length] > 0) {
-//		EMGenericKeychainItem *keychainItem = [KeyChainHandler getCouchDBKeychainItemForUser: username]; 
-		hoststring = [NSString stringWithFormat:@"%@:%@@%@",
-					  username,
-//					  [keychainItem password],
-					  password, // This one - instead of above
-					  [settings valueForKey:@"couchDBURL"]];
+	if ([couchDBHost length] == 0 || !couchDBPort)
+		return NO;
+	
+	if ([password length] == 0) {
+		password = [[EMGenericKeychainItem genericKeychainItemForService:@"CouchDB" withUsername:(NSString*)APP_ID] password];
 	} else {
-		hoststring = [settings valueForKey:@"couchDBURL"];
+		[EMGenericKeychainItem addGenericKeychainItemForService:@"CouchDB" withUsername:(NSString*)APP_ID password:password];
 	}
 	
-	SBCouchServer *tmpCouch = [[SBCouchServer alloc] initWithHost:hoststring port:[port integerValue]];
+	NSString *hoststring;
+	if ([username length] == 0 || [password length] == 0) {
+		hoststring = couchDBHost;
+	} else {
+		hoststring = [NSString stringWithFormat:@"%@:%@@%@", username, password, couchDBHost];
+	}
+	
+	SBCouchServer *tmpCouch = [[SBCouchServer alloc] initWithHost:hoststring port:[couchDBPort integerValue]];
 	
 	// Test if connection is ok
 	if ([tmpCouch version] == nil) {
@@ -159,28 +111,42 @@ static BOOL gDebugPrint;
 		return NO;
 	}
 	
+	[self saveSettings:settings];
+	
+	int interval = [updateInterval intValue];
+	if (interval < 1 || interval > 3600) {
+		NSLog(@"No reasonable DB update interval found. Set it to 2 min");
+		interval = 2; // Default value
+	}
+	
+	// Sync globals
+	[ra setInterval: interval];
+	
 	couch = tmpCouch;
-	[couch createDatabase:couchDBDBName];
-	db = [[couch database:couchDBDBName] retain];
+	[couch createDatabase:couchDBName];
+	db = [[couch database:couchDBName] retain];
 	return YES;
 }
 
 
-#pragma mark Remote Objects methods END
-
-
 - (void) hourChime: (NSTimer*) timer {
-	// Store status in db
-	SBCouchDocument *storedReport = [db getDocument:KEY_DOC_STATUS withRevisionCount:NO andInfo:NO revision:nil];
-	if (!storedReport) {
-		storedReport = [[SBCouchDocument alloc] initWithNSDictionary:devicesStatus couchDatabase:db];
-		[storedReport setObject:KEY_DOC_STATUS forKey:KEY_COUCH_ID];
-	} else {
-		[storedReport addEntriesFromDictionary:devicesStatus];
+	CFBooleanRef temp = (CFBooleanRef) CFPreferencesCopyValue(CFSTR("enableCouchDB"), APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
+	BOOL useCouchDB = (temp) ? CFBooleanGetValue(temp) : NO;
+	if (useCouchDB == YES) {
+		// Store status in db
+		SBCouchDocument *storedReport = [db getDocument:KEY_DOC_STATUS withRevisionCount:NO andInfo:NO revision:nil];
+		if (!storedReport) {
+			storedReport = [[SBCouchDocument alloc] initWithNSDictionary:devicesStatus couchDatabase:db];
+			[storedReport setObject:KEY_DOC_STATUS forKey:KEY_COUCH_ID];
+		} else {
+			[storedReport addEntriesFromDictionary:devicesStatus];
+		}
+		[storedReport setObject:KEY_DOC_STATUS forKey:KEY_DOC_DOCTYPE];
+		SBCouchResponse *response =[db putDocument:storedReport named:KEY_DOC_STATUS];
+		(void) response;
 	}
-	[storedReport setObject:KEY_DOC_STATUS forKey:KEY_DOC_DOCTYPE];
-	SBCouchResponse *response =[db putDocument:storedReport named:KEY_DOC_STATUS];
-	(void) response;
+	
+	
 	
 	// Update twitter
 //	CFBooleanRef temp = (CFBooleanRef) CFPreferencesCopyValue(CFSTR("useTwitter"), APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
@@ -259,10 +225,6 @@ static BOOL gDebugPrint;
 }
 */
 
-- (void) dealloc {
-	[super dealloc];
-}
-
 
 //
 // Notification listeners
@@ -304,7 +266,11 @@ static BOOL gDebugPrint;
 		[storedReport addEntriesFromDictionary:[dict objectForKey:KEY_READINGS]];
 	}
 	
-	[storedReport put];
+	CFBooleanRef temp = (CFBooleanRef) CFPreferencesCopyValue(CFSTR("enableCouchDB"), APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
+	BOOL useCouchDB = (temp) ? CFBooleanGetValue(temp) : NO;
+	if (useCouchDB == YES) {
+		[storedReport put];
+	}
 }
 
 
@@ -384,8 +350,46 @@ static BOOL gDebugPrint;
 }
 
 - (NSString *) applicationNameForGrowl {
-	return @"WLogger";
+	return @"Cloudya";
 }
 */
+
+
+#pragma mark Remote Objects methods BEGIN
+
+- (BOOL) setDebug: (NSNumber*) debug {
+	gDebugPrint = [debug boolValue];
+	NSLog(@"Debug log set to %@", (gDebugPrint) ? @"YES" : @"NO");
+	return gDebugPrint;
+}
+
+
+- (NSDictionary *) getSettings {
+	CFArrayRef aref = CFPreferencesCopyKeyList(APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
+	CFDictionaryRef dref = CFPreferencesCopyMultiple(aref, APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
+	return (NSDictionary*) dref;
+}
+
+- (NSDictionary *) getLevels {
+	return [NSDictionary dictionaryWithDictionary:devicesStatus];
+}
+
+- (NSDictionary *) getCurrentConditions
+{
+	return [NSDictionary dictionaryWithDictionary:currentConditions];
+}
+
+
+- (BOOL) saveSettings: (NSDictionary *) settings {
+	for (id key in settings) {
+		CFPreferencesSetValue((CFStringRef)key, [settings objectForKey:key], APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
+	}
+	// Save to disk
+	CFPreferencesSynchronize(APP_ID, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
+	
+	return YES;
+}
+
+#pragma mark Remote Objects methods END
 
 @end

@@ -415,6 +415,7 @@
 												<int key="NSCellFlags2">0</int>
 												<reference key="NSControlView" ref="810621861"/>
 												<double key="NSMaxValue">2</double>
+												<double key="NSWarningValue">1</double>
 												<int key="NSIndicatorStyle">2</int>
 											</object>
 										</object>
@@ -1854,7 +1855,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../WLoggerApp.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../Cloudya.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">NSSwitch</string>

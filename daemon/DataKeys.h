@@ -10,7 +10,7 @@
 
 #define DEBUGALOT [AppDelegate debugPrint]
 
-#define APP_ID CFSTR("se.ejeklint.WLoggerDaemon")
+#define APP_ID CFSTR("se.ejeklint.wldaemon")
 
 
 #define KEY_COUCH_ID			@"_id"

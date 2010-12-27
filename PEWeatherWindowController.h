@@ -14,10 +14,13 @@
 	IBOutlet NSImageView * weatherImageView;
 	IBOutlet NSImageView * windImageView;
 	
-	IBOutlet NSTextView * outdoorDataView;
-	IBOutlet NSTextView * indoorDataView;
-	IBOutlet NSTextView * windDataView;
-	IBOutlet NSTextView * baroDataView;
+	IBOutlet NSTextField * outdoorDataView;
+	IBOutlet NSTextField * indoorDataView;
+	IBOutlet NSTextField * windDataView;
+	IBOutlet NSTextField * baroDataView;
+	
+	IBOutlet NSSlider * rotate;
+	float previousValue;
 
 	NSConnection *connection;
 	id proxy;

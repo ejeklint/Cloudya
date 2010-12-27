@@ -9,6 +9,7 @@
 #import "PEWeatherWindowController.h"
 #import "RemoteProtocol.h"
 #import "DataKeys.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @implementation PEWeatherWindowController
@@ -17,17 +18,19 @@
 - (void) awakeFromNib {
 	[window makeKeyAndOrderFront:nil];
 	// Assert that TextViews are transparent
-	[outdoorDataView setDrawsBackground:NO];
-	[[outdoorDataView enclosingScrollView] setDrawsBackground:NO];
-	[indoorDataView setDrawsBackground:NO];
-	[[indoorDataView enclosingScrollView] setDrawsBackground:NO];
-	[windDataView setDrawsBackground:NO];
-	[[windDataView enclosingScrollView] setDrawsBackground:NO];
-	[baroDataView setDrawsBackground:NO];
-	[[baroDataView enclosingScrollView] setDrawsBackground:NO];
+//	[outdoorDataView setDrawsBackground:NO];
+//	[[outdoorDataView enclosingScrollView] setDrawsBackground:NO];
+//	[indoorDataView setDrawsBackground:NO];
+//	[[indoorDataView enclosingScrollView] setDrawsBackground:NO];
+//	[windDataView setDrawsBackground:NO];
+//	[[windDataView enclosingScrollView] setDrawsBackground:NO];
+//	[baroDataView setDrawsBackground:NO];
+//	[[baroDataView enclosingScrollView] setDrawsBackground:NO];
 	
+//	[windImageView setImage:[NSImage imageNamed:@"wind.png"]];
 	// Make wind image rotatable (not sure if it's really needed)
-	[[windImageView superview] setWantsLayer:YES];
+//	[[windImageView superview] setWantsLayer:YES];
+	
 	
 	// Set connection to daemon and get its settings
 	connection = [NSConnection connectionWithRegisteredName:KEY_REMOTE_CONNECTION_NAME host:nil];
@@ -60,73 +63,77 @@
 
 - (void) setBarometerData: (NSDictionary*) dict
 {
-	NSDictionary *attributes = [[NSDictionary alloc] initWithObjectsAndKeys:
-								[NSFont fontWithName:@"Helvetica-Bold" size:18], NSFontAttributeName,
-								[NSColor blackColor], NSForegroundColorAttributeName, nil];
-	
-	[baroDataView setTypingAttributes:attributes];
 	NSDictionary *data = [dict objectForKey:KEY_READINGS];
 	NSString *pressure = [data objectForKey:KEY_BAROMETER_ABSOLUTE];
 	NSString *forecast = [data objectForKey:KEY_BAROMETER_ABSOLUTE_FORECAST_STRING];
 	NSString *s = [NSString stringWithFormat:@"%@ mBar", pressure];
 	[self setImageForCondition:forecast];
-	[baroDataView setString:s];
+	[baroDataView setStringValue:s];
 }
 
 - (void) setOutdoorData: (NSDictionary*) dict
 {
-	NSDictionary *attributes = [[NSDictionary alloc] initWithObjectsAndKeys:
-								[NSFont fontWithName:@"Helvetica-Bold" size:36], NSFontAttributeName,
-								[NSColor blackColor], NSForegroundColorAttributeName, nil];
-	
-	[outdoorDataView setTypingAttributes:attributes];
 	NSDictionary *data = [dict objectForKey:KEY_READINGS];
-	NSString *temp = [data objectForKey:KEY_TEMP_OUTDOOR];
 	NSString *hum = [data objectForKey:KEY_HUMIDITY_OUTDOOR];
-	NSString *s = [NSString stringWithFormat:@"%@°C\n%@%%", temp, hum];
-	[outdoorDataView setString:s];
+	NSString *temp = [data objectForKey:KEY_TEMP_OUTDOOR];
+	NSString *chill = [data objectForKey:KEY_WIND_CHILL];
+	if ([chill length] != 0)
+		temp = [NSString stringWithFormat:@"%@°C\n%@°C (wind chill)", [data objectForKey:KEY_TEMP_OUTDOOR], chill];
+	else
+		temp = [NSString stringWithFormat:@"%@°C", temp];
+	NSString *s = [NSString stringWithFormat:@"%@\n%@%%", temp, hum];
+	[outdoorDataView setStringValue:s];
 }
 
 
 - (void) setIndoorData: (NSDictionary*) dict
 {
-	NSDictionary *attributes = [[NSDictionary alloc] initWithObjectsAndKeys:
-								[NSFont fontWithName:@"Helvetica-Bold" size:36], NSFontAttributeName,
-								[NSColor blackColor], NSForegroundColorAttributeName, nil];
-	
-	[indoorDataView setTypingAttributes:attributes];
 	NSDictionary *data = [dict objectForKey:KEY_READINGS];
 	NSString *temp = [data objectForKey:KEY_TEMP_INDOOR];
 	NSString *hum = [data objectForKey:KEY_HUMIDITY_INDOOR];
 	NSString *s = [NSString stringWithFormat:@"%@°C\n%@%%", temp, hum];
-	[indoorDataView setString:s];
+	[indoorDataView setStringValue:s];
 }
+
+
+//- (CAAnimation*)rotateAnimation: (float) toValue
+//{
+//	CABasicAnimation * animation;
+//	animation = [CABasicAnimation 
+//                 animationWithKeyPath:@"transform.rotation.z"];
+//    
+//    [animation setFromValue:previousValue];
+//    [animation setToValue:toValue];
+//    
+//    [animation setRemovedOnCompletion:NO];
+//    [animation setFillMode:kCAFillModeForwards];
+//	[animation setSpeed:0.5];
+//    
+//    previousValue = toValue;
+//    
+//	return animation;
+//}
+
+
 
 - (void) setWindData: (NSDictionary*) dict
 {
-	NSDictionary *attributes = [[NSDictionary alloc] initWithObjectsAndKeys:
-								[NSFont fontWithName:@"Helvetica-Bold" size:18], NSFontAttributeName,
-								[NSColor blackColor], NSForegroundColorAttributeName, nil];
-	
-	[windDataView setTypingAttributes:attributes];
-	
 	NSDictionary *data = [dict objectForKey:KEY_READINGS];
 	NSString *direction = [data objectForKey:KEY_WIND_DIRECTION];
 	NSString *gust = [data objectForKey:KEY_WIND_GUST];
 	NSString *average = [data objectForKey:KEY_WIND_AVERAGE];
 	
 	NSString *s = [NSString stringWithFormat:@"%@ m/s avg.\n%@ m/s gust", average, gust];
-	[windDataView setString:s];
+	[windDataView setStringValue:s];
 	
 	// Rotate wind
-	[windImageView setFrameCenterRotation: -1.0 * [direction floatValue]];
+	[[windImageView animator] setFrameCenterRotation: -1.0 * [direction floatValue]];
 }
+
 
 - (void) updateValues: (NSTimer *) timer
 {
-	// TODO
 	NSDictionary *conditions = [NSMutableDictionary dictionaryWithDictionary: [proxy getCurrentConditions]];
-	NSLog(@"Current conditions from daemon: %@", conditions);
 	
 	if (!conditions)
 		return;
