@@ -10,11 +10,9 @@ void SIGTERM_handler(const int sigid)
 {
 	CFRunLoopRef rl = [[NSRunLoop currentRunLoop] getCFRunLoop];
 	if (rl == NULL) {
-		NSLog(@"exit(1)");
 		exit(1); // Oops. Exit!
 	} else {
 		CFRunLoopStop(rl);
-		NSLog(@"exit(0)");
 		exit(0);
 	}
 }

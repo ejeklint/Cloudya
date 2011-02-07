@@ -12,6 +12,8 @@
 @interface PEPrefsWindowController : DBPrefsWindowController {
 	IBOutlet NSView *generalPrefsView;
 	IBOutlet NSView *storagePrefsView;
+	IBOutlet NSView *twitterPrefsView;
+	IBOutlet NSView *alarmsPrefsView;
 	
 	NSDictionary *settings;
 	NSConnection *connection;

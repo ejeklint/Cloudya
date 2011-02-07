@@ -16,6 +16,8 @@
 		4B0070301294697700AF68A4 /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B00702E1294697700AF68A4 /* General.png */; };
 		4B0070BC1295996300AF68A4 /* PEStatusWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0070BB1295996300AF68A4 /* PEStatusWindowController.m */; };
 		4B0070BF12959B3300AF68A4 /* StatusWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B0070BD12959B3300AF68A4 /* StatusWindow.xib */; };
+		4B4A365D12CB78C70099C799 /* Alarms.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4A365B12CB78C70099C799 /* Alarms.png */; };
+		4B4A365E12CB78C70099C799 /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4A365C12CB78C70099C799 /* Twitter.png */; };
 		4B5F1956129C15E800EC45D2 /* PEWeatherWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F1955129C15E800EC45D2 /* PEWeatherWindowController.m */; };
 		4B5F1964129C1F3300EC45D2 /* sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1963129C1F3300EC45D2 /* sunny.png */; };
 		4B5F1996129C23FA00EC45D2 /* WeatherWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1994129C23FA00EC45D2 /* WeatherWindow.xib */; };
@@ -105,6 +107,9 @@
 		4B0070BA1295996300AF68A4 /* PEStatusWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEStatusWindowController.h; sourceTree = "<group>"; };
 		4B0070BB1295996300AF68A4 /* PEStatusWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEStatusWindowController.m; sourceTree = "<group>"; };
 		4B0070BE12959B3300AF68A4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StatusWindow.xib; sourceTree = "<group>"; };
+		4B4A365B12CB78C70099C799 /* Alarms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alarms.png; sourceTree = "<group>"; };
+		4B4A365C12CB78C70099C799 /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
+		4B4A366412CB7FF00099C799 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4B5F1954129C15E800EC45D2 /* PEWeatherWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEWeatherWindowController.h; sourceTree = "<group>"; };
 		4B5F1955129C15E800EC45D2 /* PEWeatherWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEWeatherWindowController.m; sourceTree = "<group>"; };
 		4B5F1963129C1F3300EC45D2 /* sunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny.png; sourceTree = "<group>"; };
@@ -245,12 +250,15 @@
 		29B97314FDCFA39411CA2CEA /* WLoggerApp */ = {
 			isa = PBXGroup;
 			children = (
+				4B4A365B12CB78C70099C799 /* Alarms.png */,
+				4B4A365C12CB78C70099C799 /* Twitter.png */,
 				4BB4E954129056E80091585B /* daemon */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				4B4A366412CB7FF00099C799 /* README.md */,
 			);
 			name = WLoggerApp;
 			sourceTree = "<group>";
@@ -461,6 +469,8 @@
 				4B5F1C0F129E761000EC45D2 /* house.png in Resources */,
 				4B5F1C65129EA85200EC45D2 /* CloudApp.icns in Resources */,
 				4BC0EE7412C7987D00A015EB /* wind.png in Resources */,
+				4B4A365D12CB78C70099C799 /* Alarms.png in Resources */,
+				4B4A365E12CB78C70099C799 /* Twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,7 +45,8 @@
 {
 	[self addView:generalPrefsView label:@"General"];
 	[self addView:storagePrefsView label:@"Storage"];
-	
+	[self addView:twitterPrefsView label:@"Twitter"];
+	[self addView:alarmsPrefsView label:@"Alarms"];
 }
 
 
