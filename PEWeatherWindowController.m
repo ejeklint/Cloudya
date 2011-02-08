@@ -17,19 +17,20 @@
 
 - (void) awakeFromNib {
 	[window makeKeyAndOrderFront:nil];
-	// Assert that TextViews are transparent
-//	[outdoorDataView setDrawsBackground:NO];
-//	[[outdoorDataView enclosingScrollView] setDrawsBackground:NO];
-//	[indoorDataView setDrawsBackground:NO];
-//	[[indoorDataView enclosingScrollView] setDrawsBackground:NO];
-//	[windDataView setDrawsBackground:NO];
-//	[[windDataView enclosingScrollView] setDrawsBackground:NO];
-//	[baroDataView setDrawsBackground:NO];
-//	[[baroDataView enclosingScrollView] setDrawsBackground:NO];
-	
-//	[windImageView setImage:[NSImage imageNamed:@"wind.png"]];
-	// Make wind image rotatable (not sure if it's really needed)
-//	[[windImageView superview] setWantsLayer:YES];
+
+	// Make wind image rotatable with CAAnimation
+	[[windImageView superview] setWantsLayer:YES];
+
+    // Must change anchor point to get centre rotation, it defaults to 0.0,0.0
+    windImageView.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    // Adjust position so image won't move when changing anchor point
+	CGPoint position = windImageView.layer.position;
+	CGRect bounds = windImageView.bounds;
+	position.x += (0.5 * bounds.size.width);
+	position.y += (0.5 * bounds.size.height);
+    windImageView.layer.position = position;
+    
+    previousWindAngle = 0.0;
 	
 	
 	// Set connection to daemon and get its settings
@@ -96,24 +97,26 @@
 }
 
 
-//- (CAAnimation*)rotateAnimation: (float) toValue
-//{
-//	CABasicAnimation * animation;
-//	animation = [CABasicAnimation 
-//                 animationWithKeyPath:@"transform.rotation.z"];
-//    
-//    [animation setFromValue:previousValue];
-//    [animation setToValue:toValue];
-//    
-//    [animation setRemovedOnCompletion:NO];
-//    [animation setFillMode:kCAFillModeForwards];
-//	[animation setSpeed:0.5];
-//    
-//    previousValue = toValue;
-//    
-//	return animation;
-//}
+CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
+
+- (CABasicAnimation*) makeRotateAnimationFrom: (float) fromValue to: (float) toValue
+{
+    float adjustedToValue = toValue;
+    if (fromValue >= 180.0 && toValue == 0)
+        adjustedToValue = 360.0;
+    else if (fromValue == 0 && toValue > 180.0)
+        adjustedToValue = toValue - 360;
+	
+    CABasicAnimation *rotate = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+	rotate.fromValue = [NSNumber numberWithFloat:DegreesToRadians(-1.0 * fromValue)];
+	rotate.toValue = [NSNumber numberWithFloat:DegreesToRadians(-1.0 * adjustedToValue)];
+	rotate.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    rotate.removedOnCompletion = NO;
+    rotate.fillMode = kCAFillModeForwards;
+	rotate.duration = 0.5;
+	return rotate;
+}
 
 
 - (void) setWindData: (NSDictionary*) dict
@@ -125,9 +128,17 @@
 	
 	NSString *s = [NSString stringWithFormat:@"%@ m/s avg.\n%@ m/s gust", average, gust];
 	[windDataView setStringValue:s];
-	
-	// Rotate wind
-	[[windImageView animator] setFrameCenterRotation: -1.0 * [direction floatValue]];
+    
+	// Rotate wind image
+    float toWindAngle = [direction floatValue];
+    if (previousWindAngle == toWindAngle)
+        return;
+    
+    NSLog(@"Rotating to: %f", toWindAngle);
+    CABasicAnimation *rotate = [self makeRotateAnimationFrom: previousWindAngle to: toWindAngle];
+    [[windImageView layer] addAnimation:rotate forKey:@"rotate"];
+    
+    previousWindAngle = toWindAngle;
 }
 
 

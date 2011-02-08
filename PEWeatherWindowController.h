@@ -19,8 +19,7 @@
 	IBOutlet NSTextField * windDataView;
 	IBOutlet NSTextField * baroDataView;
 	
-	IBOutlet NSSlider * rotate;
-	float previousValue;
+	float previousWindAngle;
 
 	NSConnection *connection;
 	id proxy;

@@ -27,6 +27,7 @@
 		4B5F19E3129C2E9300EC45D2 /* snowy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F19DF129C2E9300EC45D2 /* snowy.png */; };
 		4B5F1C0F129E761000EC45D2 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C0E129E761000EC45D2 /* house.png */; };
 		4B5F1C65129EA85200EC45D2 /* CloudApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F1C64129EA85200EC45D2 /* CloudApp.icns */; };
+		4B71480B130143FD00DE59D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B71480A130143FD00DE59D8 /* QuartzCore.framework */; };
 		4B8D142B12A9532100698626 /* Cloudya-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107310486CEB800E47090 /* Cloudya-Info.plist */; };
 		4B8E882D12C6118800A91B1D /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E882C12C6118800A91B1D /* EMKeychainItem.m */; };
 		4B8E882E12C6118800A91B1D /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E882C12C6118800A91B1D /* EMKeychainItem.m */; };
@@ -120,6 +121,7 @@
 		4B5F19DF129C2E9300EC45D2 /* snowy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowy.png; sourceTree = "<group>"; };
 		4B5F1C0E129E761000EC45D2 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		4B5F1C64129EA85200EC45D2 /* CloudApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = CloudApp.icns; sourceTree = "<group>"; };
+		4B71480A130143FD00DE59D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4B8E882B12C6118800A91B1D /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
 		4B8E882C12C6118800A91B1D /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
 		4BB4E805129052F30091585B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -193,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B71480B130143FD00DE59D8 /* QuartzCore.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				4BB4E808129052F30091585B /* Security.framework in Frameworks */,
 				4BB4E80A129052F30091585B /* ServiceManagement.framework in Frameworks */,
@@ -250,6 +253,7 @@
 		29B97314FDCFA39411CA2CEA /* WLoggerApp */ = {
 			isa = PBXGroup;
 			children = (
+				4B71480A130143FD00DE59D8 /* QuartzCore.framework */,
 				4B4A365B12CB78C70099C799 /* Alarms.png */,
 				4B4A365C12CB78C70099C799 /* Twitter.png */,
 				4BB4E954129056E80091585B /* daemon */,
