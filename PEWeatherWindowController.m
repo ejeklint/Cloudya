@@ -129,14 +129,13 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	NSString *s = [NSString stringWithFormat:@"%@ m/s avg.\n%@ m/s gust", average, gust];
 	[windDataView setStringValue:s];
     
-	// Rotate wind image
+	// Rotate wind image if there is a change
     float toWindAngle = [direction floatValue];
     if (previousWindAngle == toWindAngle)
         return;
     
-    NSLog(@"Rotating to: %f", toWindAngle);
     CABasicAnimation *rotate = [self makeRotateAnimationFrom: previousWindAngle to: toWindAngle];
-    [[windImageView layer] addAnimation:rotate forKey:@"rotate"];
+    [[windImageView layer] addAnimation:rotate forKey:@"rotate"]; // Must have key set so previous animation gets replaced
     
     previousWindAngle = toWindAngle;
 }
